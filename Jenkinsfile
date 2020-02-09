@@ -8,7 +8,7 @@ pipeline {
                   s3Upload(pathStyleAccessEnabled: true, payloadSigningEnabled: true, includePathPattern:'*', bucket:'felixgeelhaar.com')
                   
                   sh 'echo "Invalidating Cloudfront cache"'
-                  cfInvalidate(distribution: "E21JQVVQL54JYX", paths: '*', waitForCompletion: true)
+                  cfInvalidate(distribution: "E21JQVVQL54JYX", paths: ['/*'], waitForCompletion: true)
                  }
              }
         }
